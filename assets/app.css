@@ -1,0 +1,61 @@
+body{
+    background-color: #ece6f6 
+}
+
+.hover-button{
+    background-color: white
+}
+
+.hover-button:hover{
+    cursor: pointer;
+    background-color: #dddddd
+}
+
+#incorrect{
+    background-color: #f87159
+}
+
+#correct{
+    background-color: #7ee91b
+}
+
+.nLink{
+    text-decoration: none;
+    color: white
+}
+
+.font-1{
+    font-family: "Open Sans";
+}
+
+.font-2{
+    font-family: Montserrat;
+}
+
+#thumbnail{
+    border: thin solid white;
+}
+
+#navbar{
+    background-color: #39045a;
+}
+
+.btn-purple{
+    background-color: #a020f0;
+    color: white;
+}
+
+.btn-purple:hover{
+    background-color: #7014a8;
+    color: white;
+}
+
+.primary{
+    background-color: #7014a8;
+    color: white;
+}
+
+.secondary{
+    background-color: #39045a;
+    color: white;
+}

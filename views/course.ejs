@@ -1,0 +1,92 @@
+<% layout('layout/boilerplate') %>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" id="topic-card">
+                    <img class="img-fluid topic-img" alt="" src="<%=course.topics[0].img%>">
+                    <div class="card-body">
+                        <div class="card-title topic-name h4">
+                            <%= course.topics[0].topicName %>
+                        </div>
+                        <p class="card-text course-code">
+                            <%= course.courseCode %>
+                        </p>
+                        <a href="<%= course.topics[0].url %>" class="btn btn-purple topic-link" target="_blank">View
+                            Topic</a>
+                        <a href="#" id="<%= course.topics[0]._id %>" class="quiz-button btn btn-purple">Quiz</a>
+                    </div>
+                </div>
+                <div id="quiz-body" class="d-none">
+                    <div class="h5" id="quiz-name">
+                        <%= course.topics[0].topicName %>
+                    </div>
+                    <div class="border rounded p-2 d-none" id="incorrect">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                        </svg>
+                        <div class="h5 d-inline">Incorrect</div>
+                        <p id="incorrectMsg"></p>
+                    </div>
+                    <div class="border rounded p-2 d-none" id="correct">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg>
+                        <div class="h5 d-inline">Correct</div>
+                    </div>
+                    <p class="h6" id="question">1. <%= course.topics[0].questions[0].question %></p>
+                    <form action="#" method="post" id="form">
+                        <div class="option-body">
+                            <% for(let i = 0; i < course.topics[0].questions[0].options.length; i++){ %>
+                                <div class="d-grid gap-2 mb-2 hover-button">
+                                    <input class="btn-check" type="radio" name="question" id="option-<%= i + 1 %>" value="<%= course.topics[0].questions[0].options[i].text %>" autocomplete="off">
+                                    <label class="btn btn-outline-dark text-start" for="option-<%= i + 1 %>" id="option-<%= i + 1 %>-label">
+                                        <%= course.topics[0].questions[0].options[i].text %>
+                                    </label>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-purple" id="check" type="button" index="0">Check answer</button>
+                            <button class="btn btn-purple d-none" id="nextQuestion" type="button" index="1">Next Question <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/></svg>
+                            </button>
+                            <button class="btn btn-success d-none" id="submit" type="button">Finish</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-none" id="score-body">
+                    <div class="h5">Your Score</div>
+                    <div class="h6" id="score"></div>
+                </div>
+
+               <div class="d-flex justify-content-end">
+                    <button class="btn btn-purple d-none next-topic" id="<%= course.topics[1]._id %>" type="button" index="1" length="<%= course.topics.length %>">Next Topic <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/></svg>
+                    </button>
+               </div>
+
+            </div>
+
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header h5 primary">
+                        Course Content
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <% for (let i = 0; i < course.topics.length; i++) { %>
+                            <div id="<%= course.topics[i]._id %>" index="<%= i %>" class="list-group-item topic-button hover-button">Section <%= i + 1 %>: <%=
+                                        course.topics[i].topicName %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const course = <%- JSON.stringify(course) %>
+    </script>
+    <script src="/course.js"></script>

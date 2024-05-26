@@ -1,0 +1,70 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center my-5 my-lg-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <img src="https://res.cloudinary.com/dmgrue5xh/image/upload/e_improve:outdoor/w_1200,ar_3:2,c_fill,g_auto/v1713541427/Project/University_of_Benin_Main_Gate_02__Benin_City__Edo_State_lqsque.jpg"
+                    alt="School Image" class="card-img-top" />
+                <div class="card-body">
+                    <div class="card-title h3">Sign Up</div>
+                    
+                    <form action="/signup" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname" name="user[firstname]" autofocus required>
+                            <div class="invalid-feedback">Please enter your firstname</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" name="user[lastname]" required>
+                            <div class="invalid-feedback">Please enter your lastname</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="image">Image</label>
+                            <input type="file" class="form-control" id="image" name="image" required>
+                            <div class="invalid-feedback">Please select an image of yourself</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="level">Level</label>
+                            <select class="form-select" name="user[level]" id="level">
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                            </select>
+                            <div class="invalid-feedback">Please choose your level</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="matNo">Matriculation Number</label>
+                            <input type="text" class="form-control" id="matNo" name="user[matNo]" required>
+                            <div class="invalid-feedback">Please enter your matriculation number</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="user[email]" required>
+                            <div class="invalid-feedback">Please enter your email</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="user[password]" required>
+                            <div class="invalid-feedback">Please enter your password</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rePassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="rePassword" name="user[rePassword]" required>
+                            <div class="invalid-feedback" id="rePasswordFeedback">Please confirm your password</div>
+                        </div> 
+                    
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-purple">Sign Up</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/validateForm.js"></script>

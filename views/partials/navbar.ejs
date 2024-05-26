@@ -1,0 +1,26 @@
+<nav class="navbar sticky-top" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-4" href="/"><img src="https://res.cloudinary.com/dmgrue5xh/image/upload/v1713273602/Project/Logos_mxmcwy.png" alt="Image of Uniben's logo" height="45"></a>
+
+        <div class="p-2 border-start fw-medium font-2 text-light">
+            <% if(course.courseName){ %>
+                <div>
+                    <%= course.courseName %>
+                </div>
+            <% } else{ %>
+                Department of Computer Science
+            <% } %>
+        </div>
+
+        <div class="ms-auto d-inline font-1">
+            <% if(!currentUser){ %>
+                    <a class="nLink me-2" href="/signup">Sign Up</a>
+                    <a class="nLink" href="/login">Login</a>
+            <% } else { %>
+                        <img src="<%= currentUser.img %> " alt="" height="40" id="thumbnail" class="rounded-circle">
+                        <a class="nLink" href="/logout">Logout</a>
+            <% } %>
+
+        </div>
+    </div>
+</nav>

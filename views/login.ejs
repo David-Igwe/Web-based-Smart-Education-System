@@ -1,0 +1,44 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center my-5 my-lg-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <img src="https://res.cloudinary.com/dmgrue5xh/image/upload/e_improve:outdoor/w_1200,ar_3:2,c_fill,g_auto/v1713263944/Project/IMG_0761_le1oua.jpg"
+                    alt="School Image" class="card-img-top" />
+                <div class="card-body">
+                    <div class="card-title h3">Log In</div>
+                    <% if(error.length){ %>
+                        <div class="alert alert-danger row justify-content-center" role="alert">
+                            <div class="col-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+                                </svg>
+                                <%= error %>
+                            </div>
+                        </div>
+                    <% } %>
+                    <form action="/login" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" autofocus required>
+                            <div class="invalid-feedback">Please enter your username (your lastname followed by your firstname)</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" required>
+                            <div class="invalid-feedback">Please enter your password</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-purple">Login</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/validateForm.js"></script>

@@ -1,0 +1,47 @@
+<% layout('layout/boilerplate') %>
+
+    <div class="container mt-3">
+
+    <% if(recommendedTopics.length){ %>
+            <div class="mb-3 mt-lg-5 mb-lg-4 font-2 fw-semibold h4">Recommended for you</div>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+                    <% for(let recommendedTopic of recommendedTopics){ %>
+                        <div class="col">
+                            <div class="card mb-3">
+                                    <img class="img-fluid" alt="" src="<%= recommendedTopic.img %>">
+                                    <div class="card-body shadow-sm">
+                                    <div class="card-title font-2 h6 fw-bold">
+                                        <%= recommendedTopic.topicName %>
+                                    </div>
+                                    <p class="card-text font-2 fw-medium">
+                                        <%= recommendedTopic.course.courseCode %>
+                                    </p>
+                                    <a href="<%= recommendedTopic.url %>" class="btn btn-purple font-1" target="_blank">View Topic</a>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+        </div>
+    <% } %>
+
+
+        <div class="mb-3 mt-lg-5 mb-lg-4 font-2 fw-semibold h2">Courses</div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <% for(let course of courses){ %>
+                    <div class="col">
+                        <div class="card mb-3">
+                                <img class="img-fluid" alt="" src="<%=course.img%>">
+                                <div class="card-body shadow-sm">
+                                <div class="card-title font-2 h6 fw-bold">
+                                    <%= course.courseName %>
+                                </div>
+                                <p class="card-text font-2 fw-medium">
+                                    <%= course.courseCode %>
+                                </p>
+                                <a href="/courses/<%= course._id %>" class="btn btn-purple font-1">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+    </div>

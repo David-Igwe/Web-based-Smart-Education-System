@@ -1,0 +1,7 @@
+.env
+node_modules/
+test/
+seeds/topic_texts/
+hybrid/
+content-based/calculateMetrics.js
+collaborative/calculateMetrics.js
