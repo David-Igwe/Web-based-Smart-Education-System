@@ -1,4 +1,4 @@
-#Web-based Smart Education System
+# Web-based Smart Education System
 
 This project is a web application predicated upon the power of three kinds of recommendation algorithms (collaborative-filtering recommendation algorithm, content-based recommendation algorithm, and the hybrid recommendation algorithm). By default, the hybrid recommendation algorithm (which is a combination of the previous two) is used, but in the [app.js](/app.js) file, the code for the remaining two are commented out.
 
@@ -39,5 +39,8 @@ app.get('/', catchAsync(async (req, res) => {
 
 One can easily comment out the hybrid section and un-comment any one you wish to use.
 
-> [!WARNING]
+> [!CAUTION]
 > Do not use more than one algorithm at the same time
+
+## Recommendation Algorithms
+For more on recommendation algorithms, [click here](https://en.wikipedia.org/wiki/Recommender_system#:~:text=A%20recommender%20system%2C%20or%20a,pertinent%20to%20a%20particular%20user.)
