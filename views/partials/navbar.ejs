@@ -1,8 +1,8 @@
 <nav class="navbar sticky-top" id="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand fs-4" href="/"><img src="https://res.cloudinary.com/dmgrue5xh/image/upload/v1713273602/Project/Logos_mxmcwy.png" alt="Image of Uniben's logo" height="45"></a>
+        <a class="navbar-brand mx-auto mx-md-2" href="/"><img src="https://res.cloudinary.com/dmgrue5xh/image/upload/v1713273602/Project/Logos_mxmcwy.png" alt="Image of Uniben's logo" height="45"></a>
 
-        <div class="p-2 border-start fw-medium font-2 text-light">
+        <div class="p-2 fw-medium font-2 text-light">
             <% if(course.courseName){ %>
                 <div>
                     <%= course.courseName %>
@@ -12,7 +12,7 @@
             <% } %>
         </div>
 
-        <div class="ms-auto d-inline font-1">
+        <div class="mx-auto ms-md-auto d-inline font-1">
             <% if(!currentUser){ %>
                     <a class="nLink me-2" href="/signup">Sign Up</a>
                     <a class="nLink" href="/login">Login</a>
